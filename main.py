@@ -1,16 +1,16 @@
 import web
 
 urls = (
-    '/(.*)', 'hello'
+    '/(.*)', 'index'
 )
+
+render = web.template.render("resources")
 app = web.application(urls, globals())
 
 
-class hello:
+class index:
     def GET(self, name):
-        if not name:
-            name = 'Mjj'
-        return '<h1>Hello, ' + name + '!</h1>' + 'You are Surfing'
+        return render.main(name)
 
 
 if __name__ == "__main__":
